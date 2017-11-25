@@ -5,24 +5,27 @@ import { RouterModule, Routes} from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { TeamformComponent } from './teamform/teamform.component';
 
 import { environment } from './../environments/environment';
-import { TeamlistComponent } from './teamlist/teamlist.component';
 import { TeamService } from './services/team.service';
 import { HttpModule } from '@angular/http';
+import { AddTeamComponent } from './add-team/add-team.component';
+import { ListTeamComponent } from './list-team/list-team.component';
+import { ModifyTeamComponent } from './modify-team/modify-team.component';
 
 const appRoutes: Routes = [
-    { path: 'list', component: TeamlistComponent },
-    { path: 'add', component: TeamformComponent },
+    { path: 'list', component: ListTeamComponent },
+    { path: 'add', component: AddTeamComponent },
+    { path: 'modify', component: ModifyTeamComponent },
     { path: '', redirectTo: 'list', pathMatch: 'full'},
   ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    TeamformComponent,
-    TeamlistComponent
+    AddTeamComponent,
+    ListTeamComponent,
+    ModifyTeamComponent
   ],
   imports: [
     BrowserModule,

@@ -23,7 +23,7 @@ export class TeamService {
   public addTeam(team: Team): Observable<any> {
     return this.http.post(this.endPoint, team, this.options);
   }
-  public modifyPerson(id: string, team: Team): Observable<any> {
+  public modifyTeam(id: string, team: Team): Observable<any> {
     return this.http.put(this.endPoint + id, team, this.options);
   }
 }

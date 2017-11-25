@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamService } from '../services/team.service';
 import { FullTeam } from '../models/fullteam';
+import { TeamService } from '../services/team.service';
 
 @Component({
-  selector: 'app-teamlist',
-  templateUrl: './teamlist.component.html',
-  styleUrls: ['./teamlist.component.css']
+  selector: 'app-list-team',
+  templateUrl: './list-team.component.html',
+  styleUrls: ['./list-team.component.css']
 })
-export class TeamlistComponent implements OnInit {
+export class ListTeamComponent implements OnInit {
 
   private teams: FullTeam[];
   constructor(private teamService: TeamService) { }
