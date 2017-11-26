@@ -2,6 +2,6 @@
 html, body{
   height: 100%;
 }
-body {
-    padding-top: 5rem;
-  }
+.container{
+  padding-top: 5rem;
+}

@@ -14,7 +14,7 @@
       Goodluck instructions here
     </p>
   </div>
-  <div class="col-md-12" *ngIf="!added">
+  <div class="col-md-12" *ngIf="!modified">
       <div class="form-group">
           <label for="teamId">Name</label>
           <input [(ngModel)]="teamId"  class="form-control" id="teamId" placeholder="Team Id" [attr.disabled]="modified?'':null">

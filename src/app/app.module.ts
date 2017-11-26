@@ -15,13 +15,16 @@ import { ModifyTeamComponent } from './modify-team/modify-team.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { OverviewComponent } from './overview/overview.component';
+import { LocationService } from './services/location.service';
+import { ScorePipe } from './pipes/score.pipe';
+import { LimitPipe } from './pipes/limit.pipe';
 
 const appRoutes: Routes = [
     { path: 'map', component: OverviewComponent },
     { path: 'list', component: ListTeamComponent },
     { path: 'add', component: AddTeamComponent },
     { path: 'modify', component: ModifyTeamComponent },
-    { path: '', redirectTo: 'list', pathMatch: 'full'},
+    { path: '', redirectTo: 'map', pathMatch: 'full'},
   ];
 
 @NgModule({
@@ -30,7 +33,9 @@ const appRoutes: Routes = [
     AddTeamComponent,
     ListTeamComponent,
     ModifyTeamComponent,
-    OverviewComponent
+    OverviewComponent,
+    ScorePipe,
+    LimitPipe
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     { provide: 'ApiBase', useValue: environment.backendUrl },
-    TeamService
+    TeamService,
+    LocationService
   ],
   bootstrap: [AppComponent]
 })

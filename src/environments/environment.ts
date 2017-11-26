@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://htf2017.azurewebsites.net/'
+  backendUrl: 'http://localhost:47369/'
 };

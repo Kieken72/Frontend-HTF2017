@@ -1,3 +1,5 @@
+import { Location } from './location';
+
 export class FullTeam {
     public id: string;
     public name: string;
@@ -9,4 +11,5 @@ export class FullTeam {
     public numberOfAndroidsCompromised: number;
     public locationId: string;
     public locationName: string;
+    public location: Location;
 }
