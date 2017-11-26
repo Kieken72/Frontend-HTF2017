@@ -10,6 +10,9 @@ import { FullTeam } from '../models/fullteam';
 export class OverviewComponent implements OnInit {
 
   private teams: FullTeam[];
+  public zoom = 3;
+  public mapTypeId = 'terrain';
+
   constructor(private teamService: TeamService) { }
 
   ngOnInit() {

@@ -1,13 +1,14 @@
-<div class="row">
-  <div class="col-md-12" *ngIf="added">
+<main class="container">
+  <div class="row">
+  <div class="col-md-12" *ngIf="modified">
     <div class="alert alert-success" role="alert">
       Team succesfully modified!
     </div>
     <ul class="list-group">
-      <li class="list-group-item">Id: <b>{{addedTeam.id}}</b></li>
-      <li class="list-group-item">Name:  <b>{{addedTeam.name}}</b></li>
-      <li class="list-group-item">Feedback Endpoint:  <b>{{addedTeam.feedbackEndpoint}}</b></li>
-      <li class="list-group-item">Location:  <b>{{addedTeam.locationName}}</b></li>
+      <li class="list-group-item">Id: <b>{{modifiedTeam.id}}</b></li>
+      <li class="list-group-item">Name:  <b>{{modifiedTeam.name}}</b></li>
+      <li class="list-group-item">Feedback Endpoint:  <b>{{modifiedTeam.feedbackEndpoint}}</b></li>
+      <li class="list-group-item">Location:  <b>{{modifiedTeam.locationName}}</b></li>
     </ul>
     <p>
       Goodluck instructions here
@@ -16,24 +17,25 @@
   <div class="col-md-12" *ngIf="!added">
       <div class="form-group">
           <label for="teamId">Name</label>
-          <input [(ngModel)]="teamId"  class="form-control" id="teamId" placeholder="Team Id" [attr.disabled]="added?'':null">
+          <input [(ngModel)]="teamId"  class="form-control" id="teamId" placeholder="Team Id" [attr.disabled]="modified?'':null">
       </div>
       <div class="form-group">
           <label for="teamName">Name</label>
-          <input [(ngModel)]="team.name"  class="form-control" id="teamName" aria-describedby="nameHelp" placeholder="Team Name" [attr.disabled]="added?'':null">
+          <input [(ngModel)]="team.name"  class="form-control" id="teamName" aria-describedby="nameHelp" placeholder="Team Name" [attr.disabled]="modified?'':null">
           <small id="nameHelp" class="form-text text-muted">Your team name here!</small>
         </div>
         <div class="form-group">
           <label for="teamUrl">Name</label>
-          <input [(ngModel)]="team.feedbackEndpoint"  class="form-control" id="teamUrl" aria-describedby="feedbackHelp" placeholder="Endpoint" [attr.disabled]="added?'':null">
+          <input [(ngModel)]="team.feedbackEndpoint"  class="form-control" id="teamUrl" aria-describedby="feedbackHelp" placeholder="Endpoint" [attr.disabled]="modified?'':null">
           <small id="feedbackHelp" class="form-text text-muted">Your team feedback url here!</small>
         </div>
         <div class="form-group">
           <label for="teamPassword">Password</label>
-          <input type="password" class="form-control" [(ngModel)]="team.password" id="teamPassword" placeholder="Password" [attr.disabled]="added?'':null">
+          <input type="password" class="form-control" [(ngModel)]="team.password" id="teamPassword" placeholder="Password" [attr.disabled]="modified?'':null">
         </div>
         <button type="submit" class="btn btn-primary" (click)="modifyTeam()">Modify</button>
         
   </div>
 </div>
 
+</main>
