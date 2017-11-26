@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../services/team.service';
 import { FullTeam } from '../models/fullteam';
 import { Team } from '../models/team';
+import { Angulartics2 } from 'angulartics2';
 
 @Component({
   selector: 'app-modify-team',
@@ -16,13 +17,20 @@ export class ModifyTeamComponent implements OnInit {
   public modified: boolean;
   public confirmPassword: string;
 
-  constructor(private teamService: TeamService) { }
+  constructor(private angulartics2: Angulartics2, private teamService: TeamService) { }
 
   ngOnInit() {
   }
 
   modifyTeam() {
     // tslint:disable-next-line:max-line-length
-    this.teamService.modifyTeam(this.teamId, this.team).subscribe(result => {this.modifiedTeam = JSON.parse(result._body); this.modified = true; });
+    this.teamService.modifyTeam(this.teamId, this.team).subscribe(result => {
+      this.modifiedTeam = JSON.parse(result._body);
+      this.modified = true;
+      this.angulartics2.eventTrack.next({
+        action: 'Modify Team',
+        properties: { category: 'action' },
+      });
+    });
   }
 }

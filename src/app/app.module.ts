@@ -19,6 +19,8 @@ import { LimitPipe } from './pipes/limit.pipe';
 
 import { AgmCoreModule } from '@agm/core';
 import { ParticlesModule } from 'angular-particle';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 const appRoutes: Routes = [
     { path: 'map', component: OverviewComponent },
@@ -46,6 +48,7 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: ''
     }),
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
