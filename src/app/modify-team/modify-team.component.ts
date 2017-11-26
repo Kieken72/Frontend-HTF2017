@@ -10,11 +10,11 @@ import { Team } from '../models/team';
 })
 export class ModifyTeamComponent implements OnInit {
 
-  private teamId: string;
-  private team: Team = new Team();
-  private modifiedTeam: FullTeam;
-  private modified: boolean;
-  private confirmPassword: string;
+  public teamId: string;
+  public team: Team = new Team();
+  public modifiedTeam: FullTeam;
+  public modified: boolean;
+  public confirmPassword: string;
 
   constructor(private teamService: TeamService) { }
 

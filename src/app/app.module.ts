@@ -13,7 +13,11 @@ import { AddTeamComponent } from './add-team/add-team.component';
 import { ListTeamComponent } from './list-team/list-team.component';
 import { ModifyTeamComponent } from './modify-team/modify-team.component';
 
+import { AgmCoreModule } from '@agm/core';
+import { OverviewComponent } from './overview/overview.component';
+
 const appRoutes: Routes = [
+    { path: 'map', component: OverviewComponent },
     { path: 'list', component: ListTeamComponent },
     { path: 'add', component: AddTeamComponent },
     { path: 'modify', component: ModifyTeamComponent },
@@ -25,13 +29,17 @@ const appRoutes: Routes = [
     AppComponent,
     AddTeamComponent,
     ListTeamComponent,
-    ModifyTeamComponent
+    ModifyTeamComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AgmCoreModule.forRoot({
+      apiKey: '-shI0swfgGA1bQ'
+    })
   ],
   providers: [
     { provide: 'ApiBase', useValue: environment.backendUrl },

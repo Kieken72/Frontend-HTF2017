@@ -10,10 +10,10 @@ import { FullTeam } from '../models/fullteam';
 })
 export class AddTeamComponent implements OnInit {
 
-  private team: Team = new Team();
-  private addedTeam: FullTeam;
-  private added: boolean;
-  private confirmPassword: string;
+  public team: Team = new Team();
+  public addedTeam: FullTeam;
+  public added: boolean;
+  public confirmPassword: string;
 
   constructor(private teamService: TeamService) { }
 
