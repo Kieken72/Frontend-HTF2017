@@ -1,15 +1,14 @@
+<particles *ngIf="loaded" [style]="myStyle" [width]="width" [height]="height" [params]="myParams"></particles>
 <div class="map">
   <agm-map [zoom]="zoom" [mapTypeId]="mapTypeId">
     <agm-marker *ngFor="let team of teams | score; let i = index" [latitude]="team.location.lattitude" [longitude]="team.location.longitude" [iconUrl]="'assets/number_'+(i+1)+'.png'"></agm-marker>
   </agm-map>
 </div>
 <div class="scoreboard">
+  <div class="card mb-3" style="max-width: 40rem;">
+      <div class="card-header"><b>Position</b>: Team<span class="float-right"><span class="badge badge-pill badge-info">Available</span> <span class="badge badge-pill badge-success">Active</span> <span class="badge badge-pill badge-danger">Compromised</span> <span class="badge badge-pill badge-warning">Score</span></span></div>
+    </div>
     <div *ngFor="let team of teams | score; let i = index" class="card mb-3" style="max-width: 40rem;">
-        <div class="card-header"><b>{{i+1}}</b>: {{team.name}} <span class="float-right badge badge-pill badge-warning">{{team.score}}</span></div>
-        <ul class="list-group list-group-flush" *ngIf="i<3">
-            <!--<li class="list-group-item"><b>Available Androids:</b> {{team.numberOfAndroidsAvailable}}</li>-->
-            <li class="list-group-item"><b>Active Androids:</b> {{team.numberOfAndroidsActive}}</li>
-            <li class="list-group-item"><b>Compromised Androids: </b>{{team.numberOfAndroidsCompromised}}</li>
-          </ul>
+        <div class="card-header"><b>{{i+1}}</b>: {{team.name}} <span class="float-right"><span class="badge badge-pill badge-info">{{team.numberOfAndroidsAvailable}}</span> <span class="badge badge-pill badge-success">{{team.numberOfAndroidsActive}}</span> <span class="badge badge-pill badge-danger">{{team.numberOfAndroidsCompromised}}</span> <span class="badge badge-pill badge-warning">{{team.score}}</span></span></div>
       </div>
 </div>

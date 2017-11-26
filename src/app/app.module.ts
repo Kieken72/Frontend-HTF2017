@@ -12,12 +12,13 @@ import { HttpModule } from '@angular/http';
 import { AddTeamComponent } from './add-team/add-team.component';
 import { ListTeamComponent } from './list-team/list-team.component';
 import { ModifyTeamComponent } from './modify-team/modify-team.component';
-
-import { AgmCoreModule } from '@agm/core';
 import { OverviewComponent } from './overview/overview.component';
 import { LocationService } from './services/location.service';
 import { ScorePipe } from './pipes/score.pipe';
 import { LimitPipe } from './pipes/limit.pipe';
+
+import { AgmCoreModule } from '@agm/core';
+import { ParticlesModule } from 'angular-particle';
 
 const appRoutes: Routes = [
     { path: 'map', component: OverviewComponent },
@@ -41,10 +42,11 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
+    ParticlesModule,
     AgmCoreModule.forRoot({
       apiKey: ''
-    })
+    }),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     { provide: 'ApiBase', useValue: environment.backendUrl },

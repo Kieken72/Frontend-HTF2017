@@ -15,3 +15,11 @@ agm-map {
     float: right;
     overflow: auto;
 }
+particles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65%;
+    height: 100%;
+    z-index: 10;
+}
