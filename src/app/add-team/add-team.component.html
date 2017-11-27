@@ -18,12 +18,12 @@
       <div class="form-group">
           <label for="teamName">Name</label>
           <input [(ngModel)]="team.name"  class="form-control" id="teamName" aria-describedby="nameHelp" placeholder="Team Name" [attr.disabled]="added?'':null">
-          <small id="nameHelp" class="form-text text-muted">Your team name here!</small>
+          <small id="nameHelp" class="form-text text-muted">Your team name here, be original!</small>
         </div>
         <div class="form-group">
-          <label for="teamUrl">Name</label>
+          <label for="teamUrl">Feedback Endpoint</label>
           <input [(ngModel)]="team.feedbackEndpoint"  class="form-control" id="teamUrl" aria-describedby="feedbackHelp" placeholder="Endpoint" [attr.disabled]="added?'':null">
-          <small id="feedbackHelp" class="form-text text-muted">Your team feedback url here!</small>
+          <small id="feedbackHelp" class="form-text text-muted">Your team feedback url here! We'll post data to this endpoint!</small>
         </div>
         <div class="form-group">
           <label for="teamPassword">Password</label>

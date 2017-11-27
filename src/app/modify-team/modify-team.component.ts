@@ -17,6 +17,8 @@ export class ModifyTeamComponent implements OnInit {
   public modifiedTeam: FullTeam;
   public modified: boolean;
   public confirmPassword: string;
+  public hasError = false;
+  public error: string;
 
   constructor(private angulartics2: Angulartics2, private teamService: TeamService, private route: ActivatedRoute) { }
 
@@ -24,20 +26,24 @@ export class ModifyTeamComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.teamId = params['id'];
     });
-    if(!!localStorage.getItem('teamId')){
+    if (!!localStorage.getItem('teamId')) {
       this.teamId = localStorage.getItem('teamId');
     }
   }
 
   modifyTeam() {
+    this.hasError = false;
     // tslint:disable-next-line:max-line-length
     this.teamService.modifyTeam(this.teamId, this.team).subscribe(result => {
-      this.modifiedTeam = JSON.parse(result._body);
+      this.modifiedTeam = result;
       this.modified = true;
       this.angulartics2.eventTrack.next({
         action: 'Modify Team',
         properties: { category: 'action' },
       });
+    }, err => {
+      this.hasError = true;
+      this.error = err;
     });
   }
 }

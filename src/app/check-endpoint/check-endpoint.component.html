@@ -1,0 +1,18 @@
+<main class="container"><div class="row">
+    <div class="col-md-12" *ngIf="!feedback">
+      
+        <div class="form-group">
+            <label for="teamId">Id</label>
+            <input [(ngModel)]="teamId"  class="form-control" id="teamId" placeholder="Team Id">
+        </div>
+          <button type="submit" class="btn btn-primary" (click)="getFeedback()">Get Feedback!</button>
+          
+    </div>
+    <div class="col-md-12" *ngIf="feedback">
+      <div class="alert alert-info" role="alert">
+        <b>Status: </b>{{feedback.status}}
+      </div>
+      </div>
+  </div>
+  
+  </main>

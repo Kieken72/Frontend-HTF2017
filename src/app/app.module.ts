@@ -21,6 +21,7 @@ import { AgmCoreModule } from '@agm/core';
 import { ParticlesModule } from 'angular-particle';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { CheckEndpointComponent } from './check-endpoint/check-endpoint.component';
 
 const appRoutes: Routes = [
     { path: 'map', component: OverviewComponent },
@@ -28,6 +29,8 @@ const appRoutes: Routes = [
     { path: 'add', component: AddTeamComponent },
     { path: 'modify', component: ModifyTeamComponent },
     { path: 'modify/:id', component: ModifyTeamComponent },
+    { path: 'feedback', component: CheckEndpointComponent },
+    { path: 'feedback/:id', component: CheckEndpointComponent },
     { path: '', redirectTo: 'map', pathMatch: 'full'},
   ];
 
@@ -39,7 +42,8 @@ const appRoutes: Routes = [
     ModifyTeamComponent,
     OverviewComponent,
     ScorePipe,
-    LimitPipe
+    LimitPipe,
+    CheckEndpointComponent
   ],
   imports: [
     BrowserModule,

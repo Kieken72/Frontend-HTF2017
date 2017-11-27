@@ -16,6 +16,7 @@
               <th>Compromised</th>
               <th>Score</th>
               <th></th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -27,6 +28,7 @@
               <td>{{team.numberOfAndroidsCompromised}}</td>
               <td>{{team.score}}</td>
               <td><a [routerLink]="['../modify/', team.id]">Edit</a></td>
+              <td><a [routerLink]="['../feedback/', team.id]">Feedback</a></td>
             </tr>
             </tbody>
           </table>

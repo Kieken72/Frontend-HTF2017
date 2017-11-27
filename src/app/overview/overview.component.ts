@@ -109,80 +109,80 @@ export class OverviewComponent implements OnInit {
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#f55f77"
+                "color": '#f55f77'
             },
             {
-                "weight": 0.4
+                'weight': 0.4
             }
         ]
     },
     {},
     {
-        "featureType": "road.highway",
-        "elementType": "labels",
-        "stylers": [
+        'featureType': 'road.highway',
+        'elementType': 'labels',
+        'stylers': [
             {
-                "weight": 0.8
+                'weight': 0.8
             },
             {
-                "color": "#ffffff"
+                'color': '#ffffff'
             },
             {
-                "visibility": "on"
+                'visibility': 'on'
             }
         ]
     },
     {
-        "featureType": "road.local",
-        "elementType": "labels",
-        "stylers": [
+        'featureType': 'road.local',
+        'elementType': 'labels',
+        'stylers': [
             {
-                "visibility": "off"
+                'visibility': 'off'
             }
         ]
     },
     {
-        "featureType": "road.arterial",
-        "elementType": "labels",
-        "stylers": [
+        'featureType': 'road.arterial',
+        'elementType': 'labels',
+        'stylers': [
             {
-                "color": "#ffffff"
+                'color': '#ffffff'
             },
             {
-                "weight": 0.7
+                'weight': 0.7
             }
         ]
     },
     {
-        "featureType": "poi",
-        "elementType": "labels",
-        "stylers": [
+        'featureType': 'poi',
+        'elementType': 'labels',
+        'stylers': [
             {
-                "visibility": "off"
+                'visibility': 'off'
             }
         ]
     },
     {
-        "featureType": "poi",
-        "stylers": [
+        'featureType': 'poi',
+        'stylers': [
             {
-                "color": "#6c5b7b"
+                'color': '#6c5b7b'
             }
         ]
     },
     {
-        "featureType": "water",
-        "stylers": [
+        'featureType': 'water',
+        'stylers': [
             {
-                "color": "#f3b191"
+                'color': '#f3b191'
             }
         ]
     },
     {
-        "featureType": "transit.line",
-        "stylers": [
+        'featureType': 'transit.line',
+        'stylers': [
             {
-                "visibility": "on"
+                'visibility': 'on'
             }
         ]
     }
@@ -305,13 +305,14 @@ export class OverviewComponent implements OnInit {
 
   getData() {
     this.locationService.listLocations().subscribe(result => {
-      this.locations = JSON.parse(result._body); this.getTeams();
+      this.locations = result;
+      this.getTeams();
     });
   }
 
   getTeams() {
     this.teamService.listTeams().subscribe(result => {
-      this.loadedTeams = JSON.parse(result._body);
+      this.loadedTeams = result;
       this.loadedTeams.forEach(team => {
         team.location = this.locations.find(location => location.id === team.locationId);
       });

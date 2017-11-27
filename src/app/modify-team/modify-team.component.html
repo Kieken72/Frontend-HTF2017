@@ -12,6 +12,9 @@
     </ul>
   </div>
   <div class="col-md-12" *ngIf="!modified">
+    <div *ngIf="hasError" class="alert alert-danger" role="alert">
+      <b>Oops</b> something went wrong. You probably entered the wrong passord..
+    </div>
       <div class="form-group">
           <label for="teamId">Id</label>
           <input [(ngModel)]="teamId"  class="form-control" id="teamId" placeholder="Team Id" [attr.disabled]="modified?'':null">
@@ -22,7 +25,7 @@
           <small id="nameHelp" class="form-text text-muted">Your team name here!</small>
         </div>
         <div class="form-group">
-          <label for="teamUrl">Name</label>
+          <label for="teamUrl">Feedback Endpoint</label>
           <input [(ngModel)]="team.feedbackEndpoint"  class="form-control" id="teamUrl" aria-describedby="feedbackHelp" placeholder="Endpoint" [attr.disabled]="modified?'':null">
           <small id="feedbackHelp" class="form-text text-muted">Your team feedback url here!</small>
         </div>

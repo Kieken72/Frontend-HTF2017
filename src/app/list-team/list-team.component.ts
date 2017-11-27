@@ -24,7 +24,7 @@ export class ListTeamComponent implements OnInit {
     }
   }
   getData() {
-    this.teamService.listTeams().subscribe(result => this.teams = JSON.parse(result._body));
+    this.teamService.listTeams().subscribe(result => this.teams = result);
   }
 
 }

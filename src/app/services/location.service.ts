@@ -1,8 +1,9 @@
 import { Injectable, Inject } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Location } from '../models/location';
 
 import { Observable } from 'rxjs/Observable';
-import { Location } from '../models/location';
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
@@ -18,6 +19,7 @@ export class LocationService {
   }
 
   public listLocations(): Observable<any> {
-    return this.http.get(this.endPoint, this.options);
+    return this.http.get(this.endPoint, this.options)
+      .map(res => res.json());
   }
 }

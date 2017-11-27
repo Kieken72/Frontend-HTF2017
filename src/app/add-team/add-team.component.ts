@@ -23,8 +23,8 @@ export class AddTeamComponent implements OnInit {
 
   addTeam() {
     this.teamService.addTeam(this.team).subscribe(result => {
-      this.addedTeam = JSON.parse(result._body);
-      localStorage.setItem('teamId',this.addedTeam.id);
+      this.addedTeam = result;
+      localStorage.setItem('teamId', this.addedTeam.id);
       this.added = true;
       this.angulartics2.eventTrack.next({
         action: 'Add Team',
