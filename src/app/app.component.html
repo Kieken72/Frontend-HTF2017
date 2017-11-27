@@ -8,8 +8,14 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item" [routerLinkActive]="['active']">
-            <a class="nav-link" [routerLink]="['../list']">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" [routerLink]="['../map']">Map <span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['../list']">Team list</a>
+          </li>
+          
+        </ul>
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item" [routerLinkActive]="['active']">
             <a class="nav-link" [routerLink]="['../add']">Add Team</a>
           </li>

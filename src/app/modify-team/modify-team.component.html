@@ -10,13 +10,10 @@
       <li class="list-group-item">Feedback Endpoint:  <b>{{modifiedTeam.feedbackEndpoint}}</b></li>
       <li class="list-group-item">Location:  <b>{{modifiedTeam.locationName}}</b></li>
     </ul>
-    <p>
-      Goodluck instructions here
-    </p>
   </div>
   <div class="col-md-12" *ngIf="!modified">
       <div class="form-group">
-          <label for="teamId">Name</label>
+          <label for="teamId">Id</label>
           <input [(ngModel)]="teamId"  class="form-control" id="teamId" placeholder="Team Id" [attr.disabled]="modified?'':null">
       </div>
       <div class="form-group">

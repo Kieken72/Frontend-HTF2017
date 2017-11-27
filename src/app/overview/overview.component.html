@@ -1,6 +1,6 @@
 <particles *ngIf="loaded" [style]="myStyle" [width]="width" [height]="height" [params]="myParams"></particles>
 <div class="map">
-  <agm-map [zoom]="zoom" [mapTypeId]="mapTypeId">
+  <agm-map [zoom]="zoom" [mapTypeId]="mapTypeId" [styles]="mapStyles">
     <agm-marker *ngFor="let team of teams | score; let i = index" [latitude]="team.location.lattitude" [longitude]="team.location.longitude" [iconUrl]="'assets/number_'+(i+1)+'.png'"></agm-marker>
   </agm-map>
 </div>

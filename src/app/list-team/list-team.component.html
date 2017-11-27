@@ -11,14 +11,22 @@
             <tr>
               <th>Name</th>
               <th>Location</th>
+              <th>Available</th>
+              <th>Active</th>
+              <th>Compromised</th>
               <th>Score</th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let team of teams">
+            <tr *ngFor="let team of teams | score">
               <td>{{team.name}}</td>
               <td>{{team.locationName}}</td>
+              <td>{{team.numberOfAndroidsAvailable}}</td>
+              <td>{{team.numberOfAndroidsActive}}</td>
+              <td>{{team.numberOfAndroidsCompromised}}</td>
               <td>{{team.score}}</td>
+              <td><a [routerLink]="['../modify/', team.id]">Edit</a></td>
             </tr>
             </tbody>
           </table>

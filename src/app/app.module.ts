@@ -27,6 +27,7 @@ const appRoutes: Routes = [
     { path: 'list', component: ListTeamComponent },
     { path: 'add', component: AddTeamComponent },
     { path: 'modify', component: ModifyTeamComponent },
+    { path: 'modify/:id', component: ModifyTeamComponent },
     { path: '', redirectTo: 'map', pathMatch: 'full'},
   ];
 
