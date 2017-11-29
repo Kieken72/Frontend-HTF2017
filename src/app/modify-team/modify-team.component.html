@@ -12,26 +12,38 @@
     </ul>
   </div>
   <div class="col-md-12" *ngIf="!modified">
+    <h2 class="mb-3">Modify a team</h2>
     <div *ngIf="hasError" class="alert alert-danger" role="alert">
       <b>Oops</b> something went wrong. You probably entered the wrong passord..
     </div>
       <div class="form-group">
           <label for="teamId">Id</label>
-          <input [(ngModel)]="teamId"  class="form-control" id="teamId" placeholder="Team Id" [attr.disabled]="modified?'':null">
+          <input [(ngModel)]="teamId"  class="form-control" [class.is-invalid]="errors.id"  id="teamId" placeholder="Team Id" [attr.disabled]="modified?'':null"><div class="invalid-feedback" *ngIf="errors.name">
+            The id can't be empty!
+          </div>
       </div>
       <div class="form-group">
           <label for="teamName">Name</label>
-          <input [(ngModel)]="team.name"  class="form-control" id="teamName" aria-describedby="nameHelp" placeholder="Team Name" [attr.disabled]="modified?'':null">
-          <small id="nameHelp" class="form-text text-muted">Your team name here!</small>
+          <input [(ngModel)]="team.name"  class="form-control" [class.is-invalid]="errors.name" id="teamName" aria-describedby="nameHelp" placeholder="Team Name" [attr.disabled]="modified?'':null">
+          <small id="nameHelp" class="form-text text-muted">Your team name here, be original!</small>
+          <div class="invalid-feedback" *ngIf="errors.name">
+            The team name can't be empty!
+          </div>
         </div>
         <div class="form-group">
           <label for="teamUrl">Feedback Endpoint</label>
-          <input [(ngModel)]="team.feedbackEndpoint"  class="form-control" id="teamUrl" aria-describedby="feedbackHelp" placeholder="Endpoint" [attr.disabled]="modified?'':null">
-          <small id="feedbackHelp" class="form-text text-muted">Your team feedback url here!</small>
+          <input [(ngModel)]="team.feedbackEndpoint"  class="form-control" [class.is-invalid]="errors.feedback" id="teamUrl" aria-describedby="feedbackHelp" placeholder="Endpoint" [attr.disabled]="modified?'':null">
+          <small id="feedbackHelp" class="form-text text-muted">Your team feedback url here! We'll get and post data to and from this endpoint! <a href="http://localhost:47369/#ngrok">(NGROK)</a></small>
+          <div class="invalid-feedback" *ngIf="errors.feedback">
+            The feedback endpoint can't be empty!
+          </div>
         </div>
         <div class="form-group">
           <label for="teamPassword">Password</label>
-          <input type="password" class="form-control" [(ngModel)]="team.password" id="teamPassword" placeholder="Password" [attr.disabled]="modified?'':null">
+          <input type="password" class="form-control" [class.is-invalid]="errors.password" [(ngModel)]="team.password" id="teamPassword" placeholder="Password" [attr.disabled]="modified?'':null">
+          <div class="invalid-feedback" *ngIf="errors.password">
+            The password can't be empty!
+          </div>
         </div>
         <button type="submit" class="btn btn-primary" (click)="modifyTeam()">Modify</button>
         

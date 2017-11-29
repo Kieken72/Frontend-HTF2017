@@ -1,6 +1,7 @@
 <main class="container"><div class="animated fadeIn">
   <div class="row">
     <div class="col-md-12">
+      <h2>Team list</h2>
       <div class="card">
         <div class="card-header">
           <strong><i class="fa fa-users" aria-hidden="true"></i> Teams</strong>
@@ -26,7 +27,7 @@
               <td>{{team.numberOfAndroidsAvailable}}</td>
               <td>{{team.numberOfAndroidsActive}}</td>
               <td>{{team.numberOfAndroidsCompromised}}</td>
-              <td>{{team.score}}</td>
+              <td [class.bg-danger]="team.score < 0" [class.bg-warning]="team.score == 0" [class.bg-success]="team.score > 0">{{team.score}}</td>
               <td><a [routerLink]="['../modify/', team.id]">Edit</a></td>
               <td><a [routerLink]="['../feedback/', team.id]">Feedback</a></td>
             </tr>

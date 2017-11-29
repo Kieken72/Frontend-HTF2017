@@ -14,7 +14,7 @@ export class AddTeamComponent implements OnInit {
   public team: Team = new Team();
   public addedTeam: FullTeam;
   public added: boolean;
-  public confirmPassword = "";
+  public confirmPassword = '';
   public errors: any;
 
   constructor(private angulartics2: Angulartics2, private teamService: TeamService) { }
@@ -24,29 +24,27 @@ export class AddTeamComponent implements OnInit {
       name: false,
       feedback: false,
       password: false
-    }
+    };
   }
   validate() {
-    var error = false;
-    if(this.team.name == ""){
+    let error = false;
+    if (this.team.name === '') {
       this.errors.name = true;
       error = true;
     }
-    if(this.team.feedbackEndpoint == ""){
+    if (this.team.feedbackEndpoint === '') {
       this.errors.feedback = true;
       error = true;
     }
-    if(this.team.password == ""){
+    if (this.team.password === '') {
       this.errors.password = true;
       error = true;
     }
     return error;
-
-
   }
 
   addTeam() {
-    if(!this.validate()){    
+    if (!this.validate()) {
       this.teamService.addTeam(this.team).subscribe(result => {
         this.addedTeam = result;
         localStorage.setItem('teamId', this.addedTeam.id);

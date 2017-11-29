@@ -16,7 +16,7 @@
   <div class="col-md-12" *ngIf="!added">
     <h2>Welcome H4ck3rs!</h2>
     <p>
-      Todo text here.
+      Let's get started by creating your team! Please remind the password and the id you'll be given!
     </p>
       <div class="form-group">
           <label for="teamName">Name</label>
@@ -28,8 +28,8 @@
         </div>
         <div class="form-group">
           <label for="teamUrl">Feedback Endpoint</label>
-          <input [(ngModel)]="team.feedbackEndpoint"  class="form-control"  [class.is-invalid]="errors.feedback"  id="teamUrl" aria-describedby="feedbackHelp" placeholder="Endpoint" [attr.disabled]="added?'':null">
-          <small id="feedbackHelp" class="form-text text-muted">Your team feedback url here! We'll post data to this endpoint!</small>
+          <input [(ngModel)]="team.feedbackEndpoint"  class="form-control" [class.is-invalid]="errors.feedback" id="teamUrl" aria-describedby="feedbackHelp" placeholder="Endpoint" [attr.disabled]="added?'':null">
+          <small id="feedbackHelp" class="form-text text-muted">Your team feedback url here! We'll get and post data to and from this endpoint! <a href="http://localhost:47369/#ngrok">(NGROK)</a></small>
           <div class="invalid-feedback" *ngIf="errors.feedback">
             The feedback endpoint can't be empty!
           </div>

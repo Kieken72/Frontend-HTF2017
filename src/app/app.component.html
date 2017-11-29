@@ -16,14 +16,22 @@
           
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item" [routerLinkActive]="['active']">
-                <a class="nav-link" [routerLink]="['../feedback']">Feedback</a>
-              </li>
+            
+              
               <li class="nav-item" [routerLinkActive]="['active']">
             <a class="nav-link" [routerLink]="['../add']">Add Team</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">|</a>
+          </li>
           <li class="nav-item" [routerLinkActive]="['active']">
             <a class="nav-link" [routerLink]="['../modify']">Modify Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">|</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['../feedback']">Check Endpoint</a>
           </li>
         </ul>
       </div>

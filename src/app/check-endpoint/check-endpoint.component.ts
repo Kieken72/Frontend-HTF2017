@@ -10,8 +10,9 @@ import { TeamFeedback } from '../models/team-feedback';
 })
 export class CheckEndpointComponent implements OnInit {
 
-  public teamId: string;
+  public teamId = '';
   public feedback: TeamFeedback;
+  public errors: any;
 
   constructor(private teamService: TeamService, private route: ActivatedRoute) { }
 
@@ -22,12 +23,23 @@ export class CheckEndpointComponent implements OnInit {
     if (!!localStorage.getItem('teamId')) {
       this.teamId = localStorage.getItem('teamId');
     }
+    this.errors = {
+      id: false
+    };
+  }
+  validate() {
+    if (this.teamId === '' || this.teamId == null) {
+      this.errors.id = true;
+      return true;
+    }
+    return false;
   }
 
   getFeedback() {
-    this.teamService.feedbackTeam(this.teamId).subscribe(result => {
-      this.feedback = result;
-    });
+    if (!this.validate()) {
+      this.teamService.feedbackTeam(this.teamId).subscribe(result => {
+        this.feedback = result;
+      });
+    }
   }
-
 }

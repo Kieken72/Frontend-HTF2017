@@ -1,18 +1,20 @@
-<main class="container"><div class="row">
-    <div class="col-md-12">
-      
-        <div class="form-group">
-            <label for="teamId">Id</label>
-            <input [(ngModel)]="teamId"  class="form-control" id="teamId" placeholder="Team Id">
-        </div>
-          <button type="submit" class="btn btn-primary" (click)="getFeedback()">Get Feedback!</button>
-          
+<main class="container">
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      <h2 class="mb-2">Check the status on a team feedback url</h2>
+      <div class="form-group">
+        <label for="teamId">Id</label>
+        <input [(ngModel)]="teamId" class="form-control" [class.is-invalid]="errors.id"  id="teamId" placeholder="Team Id">
+        <div class="invalid-feedback" *ngIf="errors.id">
+            The id can't be empty!
+          </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="getFeedback()">Get Feedback!</button>
     </div>
     <div class="col-md-12" *ngIf="feedback">
       <div class="alert alert-info" role="alert">
         <b>Status: </b>{{feedback.status}}
       </div>
-      </div>
+    </div>
   </div>
-  
-  </main>
+</main>
