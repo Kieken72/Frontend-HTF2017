@@ -22,10 +22,12 @@ import { ParticlesModule } from 'angular-particle';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { CheckEndpointComponent } from './check-endpoint/check-endpoint.component';
+import { InfoComponent } from './info/info.component';
 
 const appRoutes: Routes = [
     { path: 'map', component: OverviewComponent },
     { path: 'list', component: ListTeamComponent },
+    { path: 'info', component: InfoComponent },
     { path: 'add', component: AddTeamComponent },
     { path: 'modify', component: ModifyTeamComponent },
     { path: 'modify/:id', component: ModifyTeamComponent },
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     OverviewComponent,
     ScorePipe,
     LimitPipe,
-    CheckEndpointComponent
+    CheckEndpointComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
